@@ -90,7 +90,7 @@ metadata:
   namespace: adguard
 spec:
   rules:
-  - host: adguard.local
+  - host: adguard.lan
     http:
       paths:
       - path: /

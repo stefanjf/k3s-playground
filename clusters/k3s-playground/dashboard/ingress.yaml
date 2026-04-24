@@ -5,7 +5,7 @@ metadata:
   namespace: headlamp
 spec:
   rules:
-  - host: headlamp.local
+  - host: headlamp.lan
     http:
       paths:
       - path: /
