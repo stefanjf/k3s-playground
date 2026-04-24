@@ -64,7 +64,6 @@ metadata:
     metallb.universe.tf/loadBalancerIPs: 10.0.100.53
 spec:
   type: LoadBalancer
-  loadBalancerIP: 10.0.100.53
   selector:
     app: adguard
   ports:
