@@ -3,6 +3,9 @@ kind: Ingress
 metadata:
   name: headlamp
   namespace: headlamp
+  annotations:
+    traefik.ingress.kubernetes.io/router.entrypoints: web,websecure
+    traefik.ingress.kubernetes.io/router.tls: "true"
 spec:
   rules:
   - host: headlamp.lan
@@ -15,3 +18,6 @@ spec:
             name: headlamp
             port:
               number: 80
+  tls:
+  - hosts:
+    - headlamp.lan

@@ -28,5 +28,6 @@ spec:
         namespace: headlamp
   values:
     service:
-      type: NodePort
-      nodePort: 30003
+      type: LoadBalancer
+      annotations:
+        metallb.universe.tf/loadBalancerIPs: 10.0.100.51
