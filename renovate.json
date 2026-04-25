@@ -2,10 +2,14 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": ["config:recommended"],
   "kubernetes": {
-    "fileMatch": ["clusters/.+\\.yaml$"]
+    "managerFilePatterns": [
+      "/clusters/.+\\.yaml$/"
+    ]
   },
   "helm-values": {
-    "fileMatch": ["clusters/.+\\.yaml$"]
+    "managerFilePatterns": [
+      "/clusters/.+\\.yaml$/"
+    ]
   },
   "packageRules": [
     {
