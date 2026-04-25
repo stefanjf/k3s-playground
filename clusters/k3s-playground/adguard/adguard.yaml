@@ -86,8 +86,11 @@ spec:
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: adguard
+  name: adguard-http
   namespace: adguard
+  annotations:
+    traefik.ingress.kubernetes.io/router.entrypoints: web
+    traefik.ingress.kubernetes.io/router.middlewares: kube-system-redirect-https@kubernetescrd
 spec:
   rules:
   - host: adguard.lan
@@ -100,3 +103,28 @@ spec:
             name: adguard-dns
             port:
               number: 80
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: adguard-https
+  namespace: adguard
+  annotations:
+    traefik.ingress.kubernetes.io/router.entrypoints: websecure
+    traefik.ingress.kubernetes.io/router.tls: "true"
+spec:
+  rules:
+  - host: adguard.lan
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: adguard-dns
+            port:
+              number: 80
+  tls:
+  - hosts:
+    - adguard.lan
+    secretName: adguard-tls

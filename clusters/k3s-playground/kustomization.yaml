@@ -6,3 +6,5 @@ resources:
   - headlamp/ingress.yaml
   - adguard/adguard.yaml
   - metallb/kustomizations.yaml
+  - cert-manager/kustomizations.yaml
+  - traefik/middleware.yaml
