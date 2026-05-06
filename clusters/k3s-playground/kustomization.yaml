@@ -8,3 +8,5 @@ resources:
   - metallb/kustomizations.yaml
   - cert-manager/kustomizations.yaml
   - traefik/middleware.yaml
+  - openclaw/openclaw.yaml
+  - openclaw/ingress.yaml
