@@ -90,13 +90,13 @@ spec:
           command:
             - sh
             - -c
-            - mkdir -p /home/openclaw/.openclaw && cp /config/openclaw.json /home/openclaw/.openclaw/openclaw.json && cp /config/AGENTS.md /home/openclaw/.openclaw/AGENTS.md
+            - mkdir -p /home/node/.openclaw && cp /config/openclaw.json /home/node/.openclaw/openclaw.json && cp /config/AGENTS.md /home/node/.openclaw/AGENTS.md
           volumeMounts:
             - name: config
               mountPath: /config
               readOnly: true
             - name: home
-              mountPath: /home/openclaw
+              mountPath: /home/node
       containers:
         - name: openclaw
           image: ghcr.io/openclaw/openclaw:slim
@@ -150,17 +150,19 @@ spec:
             httpGet:
               path: /healthz
               port: 18789
+              host: 127.0.0.1
             initialDelaySeconds: 60
             periodSeconds: 30
           readinessProbe:
             httpGet:
               path: /readyz
               port: 18789
+              host: 127.0.0.1
             initialDelaySeconds: 15
             periodSeconds: 10
           volumeMounts:
             - name: home
-              mountPath: /home/openclaw
+              mountPath: /home/node
             - name: tmp
               mountPath: /tmp
       volumes:
