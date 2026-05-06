@@ -22,7 +22,8 @@ data:
         },
         "controlUi": {
           "enabled": true,
-          "dangerouslyDisableDeviceAuth": true
+          "dangerouslyDisableDeviceAuth": true,
+          "allowedOrigins": ["https://openclaw.lan"]
         }
       },
       "agents": {
