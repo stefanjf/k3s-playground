@@ -28,12 +28,14 @@ data:
       },
       "agents": {
         "defaults": {
+          "model": "anthropic/claude-sonnet-4-6",
           "workspace": "~/.openclaw/workspace"
         },
         "list": [
           {
             "id": "default",
             "name": "OpenClaw Assistant",
+            "model": "anthropic/claude-sonnet-4-6",
             "workspace": "~/.openclaw/workspace"
           }
         ]
