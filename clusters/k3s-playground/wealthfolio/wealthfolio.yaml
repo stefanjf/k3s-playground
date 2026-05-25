@@ -11,7 +11,6 @@ metadata:
 type: Opaque
 stringData:
   WF_SECRET_KEY: "2GWkERCIxqJhH7vX4bMXLwVDO1yVmVH2NTepKOdV7dQ="
-  WF_AUTH_PASSWORD_HASH: "$argon2id$v=19$m=4096,t=3,p=1$NTRjNWUzMTA0ZmUzOGQ0Yg$a1yWBEZDHwdA+Z1i21XWR61C3yZtZvCcjtCeehyspk8"
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -58,11 +57,6 @@ spec:
             secretKeyRef:
               name: wealthfolio-secret
               key: WF_SECRET_KEY
-        - name: WF_AUTH_PASSWORD_HASH
-          valueFrom:
-            secretKeyRef:
-              name: wealthfolio-secret
-              key: WF_AUTH_PASSWORD_HASH
         volumeMounts:
         - name: wealthfolio-data
           mountPath: /data
