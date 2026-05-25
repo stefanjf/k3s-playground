@@ -52,6 +52,8 @@ spec:
           value: "/data/wealthfolio.db"
         - name: WF_CORS_ALLOW_ORIGINS
           value: "https://wealthfolio.lan"
+        - name: WF_AUTH_REQUIRED
+          value: "false"
         - name: WF_SECRET_KEY
           valueFrom:
             secretKeyRef:
